@@ -3,7 +3,7 @@ $con = mysqli_connect("localhost", "woolleyja", "jollyship44", "woolleyja_cantee
 if(mysqli_connect_errno()){
     echo "Failed to connect to MySQL:".mysqli_connect_error(); die();}
 else{
-    echo "connected to database";}
+    $database_connection = TRUE;}
 ?>
 
 <!DOCTYPE html>
@@ -32,6 +32,11 @@ else{
             <div class="grid-item filters"></div>
             <div class="grid-item page_heading"></div>
             <div class="grid-item products"></div>
-            <div class="grid-item footer"></div>
+            <div class="grid-item footer">
+                <?php
+                if($database_connection == TRUE){
+                    echo "connected to database";}
+                ?>
+            </div>
         </div>
     </body>
