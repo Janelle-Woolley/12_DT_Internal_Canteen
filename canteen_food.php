@@ -80,7 +80,12 @@ function print_diet_food_info($database_record){
                     <a href="canteen_weekly_specials.php">  WEEKLY SPECIALS </a>
                 </nav>
             </div>
-            <div class="grid-item search"></div>
+            <div class="grid-item search">
+                <form action="" method="post">
+                    <input type="text" name="search">
+                    <input type="submit" name="submit" value="Search">
+                </form>
+            </div>
             <div class="grid-item filters">
                 <! -- code used from: https://www.geeksforgeeks.org/how-to-call-php-function-on-the-click-of-a-button/ -->
                 <form method="post">
@@ -108,6 +113,26 @@ function print_diet_food_info($database_record){
             </div>
             <div class="grid-item left_products">
                 <?php
+                if(isset($_POST['search'])){
+                    $search = $_POST['search'];
+
+                    $search_query_food = "SELECT food_name, food_price 
+                                     FROM food
+                                     WHERE food_name LIKE '%$search%'";
+                    $search_query_food_results = mysqli_query($con, $search_query_food);
+                    $count = mysqli_num_rows($search_query_food_results);
+
+                    if($count == 0){
+                        echo "There were no search results!";
+                    }
+                    else{
+                        while($row = mysqli_fetch_array($search_query_food_results)){
+                            echo $row['food_name'].": ";
+                            echo $row['food_price'];
+                            echo "<br>";
+                        }
+                    }
+                }
                 while($left_food_record = mysqli_fetch_assoc($left_food_results)){
                     if($left_food_record["food_id"]% 2 != 0){
                         if(array_key_exists('vegetarian', $_POST)){
