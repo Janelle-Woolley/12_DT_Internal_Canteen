@@ -11,6 +11,7 @@ $all_food_query = "SELECT *
                    ORDER BY `food`.`food_in_stock` DESC";
 $right_food_results = mysqli_query($con, $all_food_query);
 $left_food_results = mysqli_query($con, $all_food_query);
+$diet_food_results = mysqli_query($con, $all_food_query);
 
 function print_food_info($database_record){
     echo $database_record['food_name'].": ";
@@ -42,6 +43,19 @@ function print_food_info($database_record){
     echo "<br>";
     echo "<br>";
 }
+function print_diet_food_info($database_record){
+    echo $database_record['food_name'].": ";
+    echo $database_record['food_price'];
+    echo "<br>";
+    if($database_record['food_in_stock'] == 'yes'){
+        echo "--Available--";
+    }
+    else{
+        echo "--Out of Stock--";
+    }
+    echo "<br>";
+    echo "<br>";
+}
 ?>
 
 <!DOCTYPE html>
@@ -69,24 +83,103 @@ function print_food_info($database_record){
             <div class="grid-item search"></div>
             <div class="grid-item filters">
                 <! -- code used from: https://www.geeksforgeeks.org/how-to-call-php-function-on-the-click-of-a-button/ -->
+                <form method="post">
+                    <input type="submit" name="vegetarian"
+                           class="button" value="Vegetarian" />
+
+                    <input type="submit" name="vegan"
+                           class="button" value="Vegan" />
+
+                    <input type="submit" name="dairy"
+                           class="button" value="Dairy Free"/>
+
+                    <input type="submit" name="gluten"
+                           class="button" value="Gluten Free"/>
+
+                    <input type="submit" name="meat"
+                           class="button" value="Meat"/>
+
+                    <input type="submit" name="all_food"
+                           class="button" value="All Foods"/>
+                </form>
             </div>
             <div class="grid-item product_page_heading">
                 <h1>Food</h1>
             </div>
             <div class="grid-item left_products">
                 <?php
-                while($right_food_record = mysqli_fetch_assoc($right_food_results)){
-                    if($right_food_record["food_id"]% 2 != 0){
-                        print_food_info($right_food_record);
+                while($left_food_record = mysqli_fetch_assoc($left_food_results)){
+                    if($left_food_record["food_id"]% 2 != 0){
+                        if(array_key_exists('vegetarian', $_POST)){
+                            if ($left_food_record['is_vegetarian'] == 'yes'){
+                                print_diet_food_info($left_food_record);
+                            }
+                        }
+                        elseif(array_key_exists('vegan', $_POST)){
+                            if ($left_food_record['is_vegan'] == 'yes'){
+                                print_diet_food_info($left_food_record);
+                            }
+                        }
+                        elseif(array_key_exists('dairy', $_POST)){
+                            if ($left_food_record['is_dairy_free'] == 'yes'){
+                                print_diet_food_info($left_food_record);
+                            }
+                        }
+                        elseif(array_key_exists('gluten', $_POST)){
+                            if ($left_food_record['is_gluten_free'] == 'yes'){
+                                print_diet_food_info($left_food_record);
+                            }
+                        }
+                        elseif(array_key_exists('meat', $_POST)){
+                            if ($left_food_record['is_meat'] == 'yes'){
+                                print_diet_food_info($left_food_record);
+                            }
+                        }
+                        elseif(array_key_exists('all_food', $_POST)){
+                            print_food_info($left_food_record);
+                        }
+                        else{
+                            print_food_info($left_food_record);
+                        }
                     }
                 }
                 ?>
             </div>
             <div class="grid-item right_products">
                 <?php
-                while($left_food_record = mysqli_fetch_assoc($left_food_results)){
-                    if($left_food_record["food_id"]% 2 == 0){
-                        print_food_info($left_food_record);
+                while($right_food_record = mysqli_fetch_assoc($right_food_results)){
+                    if($right_food_record["food_id"]% 2 == 0){
+                        if(array_key_exists('vegetarian', $_POST)){
+                            if ($right_food_record['is_vegetarian'] == 'yes'){
+                                print_diet_food_info($right_food_record);
+                            }
+                        }
+                        elseif(array_key_exists('vegan', $_POST)){
+                            if ($right_food_record['is_vegan'] == 'yes'){
+                                print_diet_food_info($right_food_record);
+                            }
+                        }
+                        elseif(array_key_exists('dairy', $_POST)){
+                            if ($right_food_record['is_dairy_free'] == 'yes'){
+                                print_diet_food_info($right_food_record);
+                            }
+                        }
+                        elseif(array_key_exists('gluten', $_POST)){
+                            if ($right_food_record['is_gluten_free'] == 'yes'){
+                                print_diet_food_info($right_food_record);
+                            }
+                        }
+                        elseif(array_key_exists('meat', $_POST)){
+                            if ($right_food_record['is_meat'] == 'yes'){
+                                print_diet_food_info($right_food_record);
+                            }
+                        }
+                        elseif(array_key_exists('all_food', $_POST)){
+                            print_food_info($right_food_record);
+                        }
+                        else{
+                            print_food_info($right_food_record);
+                        }
                     }
                 }
                 ?>

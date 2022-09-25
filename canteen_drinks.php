@@ -39,6 +39,19 @@ function print_drinks_info($database_record){
     echo "<br>";
     echo "<br>";
 }
+function print_diet_drinks_info($database_record){
+    echo $database_record['drink_name'].": ";
+    echo $database_record['drink_price'];
+    echo "<br>";
+    if($database_record['drink_in_stock'] == 'yes'){
+        echo "--Available--";
+    }
+    else{
+        echo "--Out of Stock--";
+    }
+    echo "<br>";
+    echo "<br>";
+}
 ?>
 
 <!DOCTYPE html>
@@ -64,24 +77,92 @@ function print_drinks_info($database_record){
                 </nav>
             </div>
             <div class="grid-item search"></div>
-            <div class="grid-item filters"></div>
+            <div class="grid-item filters">
+                <! -- code used from: https://www.geeksforgeeks.org/how-to-call-php-function-on-the-click-of-a-button/ -->
+                <form method="post">
+                    <input type="submit" name="vegetarian"
+                           class="button" value="Vegetarian" />
+
+                    <input type="submit" name="vegan"
+                           class="button" value="Vegan" />
+
+                    <input type="submit" name="dairy"
+                           class="button" value="Dairy Free"/>
+
+                    <input type="submit" name="gluten"
+                           class="button" value="Gluten Free"/>
+
+                    <input type="submit" name="all_drinks"
+                           class="button" value="All Drinks"/>
+                </form>
+            </div>
             <div class="grid-item product_page_heading">
                 <h1>Drinks</h1>
             </div>
             <div class="grid-item left_products">
                 <?php
-                while($right_drinks_record = mysqli_fetch_assoc($right_drinks_results)) {
-                    if($right_drinks_record["drink_id"]% 2 != 0){
-                        print_drinks_info($right_drinks_record);
+                while($left_drinks_record = mysqli_fetch_assoc($left_drinks_results)) {
+                    if($left_drinks_record["drink_id"]% 2 != 0){
+                        if(array_key_exists('vegetarian', $_POST)){
+                            if ($left_drinks_record['is_vegetarian'] == 'yes'){
+                                print_diet_drinks_info($left_drinks_record);
+                            }
+                        }
+                        elseif(array_key_exists('vegan', $_POST)){
+                            if ($left_drinks_record['is_vegan'] == 'yes'){
+                                print_diet_drinks_info($left_drinks_record);
+                            }
+                        }
+                        elseif(array_key_exists('dairy', $_POST)){
+                            if ($left_drinks_record['is_dairy_free'] == 'yes'){
+                                print_diet_drinks_info($left_drinks_record);
+                            }
+                        }
+                        elseif(array_key_exists('gluten', $_POST)){
+                            if ($left_drinks_record['is_gluten_free'] == 'yes'){
+                                print_diet_drinks_info($left_drinks_record);
+                            }
+                        }
+                        elseif(array_key_exists('all_drinks', $_POST)){
+                            print_drinks_info($left_drinks_record);
+                        }
+                        else{
+                            print_drinks_info($left_drinks_record);
+                        }
                     }
                 }
                 ?>
             </div>
             <div class="grid-item right_products">
                 <?php
-                while($left_drinks_record = mysqli_fetch_assoc($left_drinks_results)) {
-                    if($left_drinks_record["drink_id"]% 2 == 0){
-                        print_drinks_info($left_drinks_record);
+                while($right_drinks_record = mysqli_fetch_assoc($right_drinks_results)) {
+                    if($right_drinks_record["drink_id"]% 2 == 0){
+                        if(array_key_exists('vegetarian', $_POST)){
+                            if ($right_drinks_record['is_vegetarian'] == 'yes'){
+                                print_diet_drinks_info($right_drinks_record);
+                            }
+                        }
+                        elseif(array_key_exists('vegan', $_POST)){
+                            if ($right_drinks_record['is_vegan'] == 'yes'){
+                                print_diet_drinks_info($right_drinks_record);
+                            }
+                        }
+                        elseif(array_key_exists('dairy', $_POST)){
+                            if ($right_drinks_record['is_dairy_free'] == 'yes'){
+                                print_diet_drinks_info($right_drinks_record);
+                            }
+                        }
+                        elseif(array_key_exists('gluten', $_POST)){
+                            if ($right_drinks_record['is_gluten_free'] == 'yes'){
+                                print_diet_drinks_info($right_drinks_record);
+                            }
+                        }
+                        elseif(array_key_exists('all_drinks', $_POST)){
+                            print_drinks_info($right_drinks_record);
+                        }
+                        else{
+                            print_drinks_info($right_drinks_record);
+                        }
                     }
                 }
                 ?>
