@@ -5,12 +5,12 @@
     /* Declare the grid container */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 2fr 1fr 1fr 3fr 3fr 1fr;
+    grid-template-rows: 0.25fr 0.25fr 0.25fr 0.25fr 3fr 0.25fr;
     grid-gap: 2px;
 }
 
 body{
-    background-color: #E66500;
+    background-color: #F5976C;
 }
 
 .grid-item{
@@ -27,7 +27,7 @@ body{
     grid-row-end: 2;
 }
 
-.heading{
+.main_heading{
     grid-column-start: 2;
     grid-column-end: 4;
     grid-row-start: 1;
@@ -47,6 +47,7 @@ body{
     grid-row-start: 2;
     grid-row-end: 3;
     background-color: #FFF8DC;
+    text-align: center;
 }
 
 .filters{
@@ -56,15 +57,26 @@ body{
     grid-row-end: 4;
 }
 
-.page_heading{
+.product_page_heading{
     grid-column-start: 2;
     grid-column-end: 4;
     grid-row-start: 4;
     grid-row-end: 5;
+    text-align: center;
 }
 
-.products{
+.left_products{
     grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 5;
+    grid-row-end: 6;
+    font-size: 12px;
+    text-align: center;
+    background-color: #FFFFFF;
+}
+
+.right_products{
+    grid-column-start: 3;
     grid-column-end: 4;
     grid-row-start: 5;
     grid-row-end: 6;
@@ -80,14 +92,24 @@ body{
     grid-row-end: 7;
 }
 
-.about_us{
+.home_heading{
     grid-column-start: 2;
     grid-column-end: 4;
     grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+.home_text{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 4;
     grid-row-end: 6;
 }
 
 a{
     background-color: #F5976C;
-    
+    color: black;
+    text-decoration: none;
+    border: 1px solid rgb(000,000,000);
+
 }

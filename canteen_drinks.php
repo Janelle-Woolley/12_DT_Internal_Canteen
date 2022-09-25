@@ -9,8 +9,36 @@ $all_drinks_query = "SELECT *
                    FROM drinks, dietary_requirements
                    WHERE drinks.dietary_requirements_id = dietary_requirements.dietary_requirements_id
                    ORDER BY `drinks`.`drink_in_stock` DESC";
-$all_drinks_results = mysqli_query($con, $all_drinks_query);
+$left_drinks_results = mysqli_query($con, $all_drinks_query);
+$right_drinks_results = mysqli_query($con, $all_drinks_query);
 
+function print_drinks_info($database_record){
+    echo $database_record['drink_name'].": ";
+    echo $database_record['drink_price'];
+    echo "<br>";
+    echo $database_record['ingredients'];
+    echo "<br>";
+    if($database_record['drink_in_stock'] == 'yes'){
+        echo "--Available--";
+    }
+    else{
+        echo "--Out of Stock--";
+    }
+    if($database_record['is_vegetarian'] == 'yes'){
+        echo " --Vegetarian--";
+    }
+    if($database_record['is_vegan'] == 'yes'){
+        echo " --Vegan--";
+    }
+    if($database_record['is_dairy_free'] == 'yes'){
+        echo " --Dairy Free--";
+    }
+    if($database_record['is_gluten_free'] == 'yes'){
+        echo " --Gluten Free--";
+    }
+    echo "<br>";
+    echo "<br>";
+}
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +54,7 @@ $all_drinks_results = mysqli_query($con, $all_drinks_query);
     <body>
         <div class="grid-container">
             <div class="grid-item logo"></div>
-            <div class="grid-item heading"></div>
+            <div class="grid-item main_heading"></div>
             <div class="grid-item navigation">
                 <nav>
                     <a href="canteen_home.php"> HOME </a>
@@ -37,35 +65,24 @@ $all_drinks_results = mysqli_query($con, $all_drinks_query);
             </div>
             <div class="grid-item search"></div>
             <div class="grid-item filters"></div>
-            <div class="grid-item page_heading"></div>
-            <div class="grid-item products">
+            <div class="grid-item product_page_heading">
+                <h1>Drinks</h1>
+            </div>
+            <div class="grid-item left_products">
                 <?php
-                while($all_drinks_record = mysqli_fetch_assoc($all_drinks_results)){
-                    echo $all_drinks_record['drink_name'].": ";
-                    echo $all_drinks_record['drink_price'];
-                    echo "<br>";
-                    echo $all_drinks_record['ingredients'];
-                    echo "<br>";
-                    if($all_drinks_record['drink_in_stock'] == 'yes'){
-                        echo "--Available--";
+                while($right_drinks_record = mysqli_fetch_assoc($right_drinks_results)) {
+                    if($right_drinks_record["drink_id"]% 2 != 0){
+                        print_drinks_info($right_drinks_record);
                     }
-                    else{
-                        echo "--Out of Stock--";
+                }
+                ?>
+            </div>
+            <div class="grid-item right_products">
+                <?php
+                while($left_drinks_record = mysqli_fetch_assoc($left_drinks_results)) {
+                    if($left_drinks_record["drink_id"]% 2 == 0){
+                        print_drinks_info($left_drinks_record);
                     }
-                    if($all_drinks_record['is_vegetarian'] == 'yes'){
-                        echo " --Vegetarian--";
-                    }
-                    if($all_drinks_record['is_vegan'] == 'yes'){
-                        echo " --Vegan--";
-                    }
-                    if($all_drinks_record['is_dairy_free'] == 'yes'){
-                        echo " --Dairy Free--";
-                    }
-                    if($all_drinks_record['is_gluten_free'] == 'yes'){
-                        echo " --Gluten Free--";
-                    }
-                    echo "<br>";
-                    echo "<br>";
                 }
                 ?>
             </div>

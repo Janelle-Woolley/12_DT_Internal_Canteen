@@ -19,7 +19,7 @@ else{
     <body>
         <div class="grid-container">
             <div class="grid-item logo"></div>
-            <div class="grid-item heading">
+            <div class="grid-item main_heading">
                 <p>WELLINGTON GIRLS' COLLAGE CANTEEN</p>
             </div>
             <div class="grid-item navigation">
@@ -33,7 +33,8 @@ else{
             <div class="grid-item search">
                 Nunc feugiat, ligula at fringilla.
             </div>
-            <div class="grid-item about_us">
+            <div class="grid-item home_heading">About Us</div>
+            <div class="grid-item home_text">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis congue
                    gravida tellus, id facilisis quam. Donec egestas sodales ex varius accumsan.
                    Ut scelerisque fermentum pulvinar. Aliquam sit amet metus rhoncus, porttitor
