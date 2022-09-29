@@ -66,8 +66,14 @@ function print_diet_drinks_info($database_record){
 
     <body>
         <div class="grid-container">
-            <div class="grid-item logo"></div>
-            <div class="grid-item main_heading"></div>
+            <div class="grid-item logo">
+                <a href="canteen_home.php" class="image">
+                    <img src="wgc_logo.jpg" alt="Wellington Girls' College Logo" height="125" width="125">
+                </a>
+            </div>
+            <div class="grid-item main_heading">
+                <h1>WELLINGTON GIRLS' COLLEGE CANTEEN</h1>
+            </div>
             <div class="grid-item navigation">
                 <nav>
                     <a href="canteen_home.php"> HOME </a>
@@ -97,7 +103,7 @@ function print_diet_drinks_info($database_record){
                 </form>
             </div>
             <div class="grid-item product_page_heading">
-                <h1>Drinks</h1>
+                <h2>Drinks</h2>
             </div>
             <div class="grid-item left_products">
                 <?php

@@ -18,9 +18,13 @@ else{
 
     <body>
         <div class="grid-container">
-            <div class="grid-item logo"></div>
+            <div class="grid-item logo">
+                <a href="canteen_home.php" class="image">
+                    <img src="wgc_logo.jpg" alt="Wellington Girls' College Logo" height="125" width="125">
+                </a>
+            </div>
             <div class="grid-item main_heading">
-                <p>WELLINGTON GIRLS' COLLAGE CANTEEN</p>
+                <h1>WELLINGTON GIRLS' COLLEGE CANTEEN</h1>
             </div>
             <div class="grid-item navigation">
                 <nav>
