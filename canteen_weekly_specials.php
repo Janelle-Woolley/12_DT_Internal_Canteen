@@ -84,10 +84,20 @@ function print_weekly_special_info($database_record, $database_connection){
                     <a href="canteen_weekly_specials.php">  WEEKLY SPECIALS </a>
                 </nav>
             </div>
-            <div class="grid-item search"></div>
-            <div class="grid-item filters"></div>
-            <div class="grid-item product_page_heading">
+            <div class="grid-item logo_right">
+                <a href="canteen_home.php" class="image">
+                    <img src="wgc_logo.jpg" alt="Wellington Girls' College Logo" height="125" width="125">
+                </a>
+            </div>
+            <div class="grid-item upper_heading">
                 <h2>Weekly Specials</h2>
+            </div>
+            <div class="grid-item weekly_special_text">
+                <p>
+                    Each week a food and drink can be brought together as a weekly special.
+                    <br>
+                    We have 12 rotating weekly specials.
+                </p>
             </div>
             <div class="grid-item left_products">
                 <?php
@@ -110,8 +120,9 @@ function print_weekly_special_info($database_record, $database_connection){
             <div class="grid-item footer">
                 <?php
                 if($database_connection == TRUE){
-                    echo "connected to database";}
+                    echo "Connected to database";}
                 ?>
+                &copy; Wellington Girls' College 2022 (Janelle Woolley)
             </div>
         </div>
     </body>

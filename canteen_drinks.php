@@ -82,24 +82,28 @@ function print_diet_drinks_info($database_record){
                     <a href="canteen_weekly_specials.php">  WEEKLY SPECIALS </a>
                 </nav>
             </div>
-            <div class="grid-item search"></div>
+            <div class="grid-item logo_right">
+                <a href="canteen_home.php" class="image">
+                    <img src="wgc_logo.jpg" alt="Wellington Girls' College Logo" height="125" width="125">
+                </a>
+            </div>
             <div class="grid-item filters">
                 <! -- code used from: https://www.geeksforgeeks.org/how-to-call-php-function-on-the-click-of-a-button/ -->
                 <form method="post">
                     <input type="submit" name="vegetarian"
-                           class="button" value="Vegetarian" />
+                           class="filter" value="Vegetarian" />
 
                     <input type="submit" name="vegan"
-                           class="button" value="Vegan" />
+                           class="filter" value="Vegan" />
 
                     <input type="submit" name="dairy"
-                           class="button" value="Dairy Free"/>
+                           class="filter" value="Dairy Free"/>
 
                     <input type="submit" name="gluten"
-                           class="button" value="Gluten Free"/>
+                           class="filter" value="Gluten Free"/>
 
                     <input type="submit" name="all_drinks"
-                           class="button" value="All Drinks"/>
+                           class="filter" value="All Drinks"/>
                 </form>
             </div>
             <div class="grid-item product_page_heading">
@@ -176,8 +180,9 @@ function print_diet_drinks_info($database_record){
             <div class="grid-item footer">
                 <?php
                 if($database_connection == TRUE){
-                    echo "connected to database";}
+                    echo "Connected to database";}
                 ?>
+                &copy; Wellington Girls' College 2022 (Janelle Woolley)
             </div>
         </div>
     </body>

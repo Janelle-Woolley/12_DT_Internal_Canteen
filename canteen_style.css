@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 .grid-container {
     width: 960px;
     margin: auto; /* center the wrapper */
@@ -5,7 +9,7 @@
     /* Declare the grid container */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 0.25fr 0.25fr 0.25fr 0.25fr 3fr 0.25fr;
+    grid-template-rows: 0.25fr 0.25fr 0.25fr 0.25fr 2fr 0.25fr;
     grid-gap: 2px;
 }
 
@@ -33,6 +37,7 @@ body{
     grid-row-start: 1;
     grid-row-end: 2;
     text-align: center;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .search{
@@ -43,6 +48,13 @@ body{
 
 }
 
+.logo_right{
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
 .navigation{
     grid-column-start: 1;
     grid-column-end: 5;
@@ -50,6 +62,8 @@ body{
     grid-row-end: 3;
     background-color: #FFF8DC;
     text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .filters{
@@ -58,6 +72,7 @@ body{
     grid-row-start: 3;
     grid-row-end: 4;
     text-align: center;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .product_page_heading{
@@ -66,6 +81,7 @@ body{
     grid-row-start: 4;
     grid-row-end: 5;
     text-align: center;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .left_products{
@@ -76,6 +92,7 @@ body{
     font-size: 12px;
     text-align: center;
     background-color: #FFFFFF;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .right_products{
@@ -86,6 +103,7 @@ body{
     font-size: 12px;
     text-align: center;
     background-color: #FFFFFF;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .footer{
@@ -93,13 +111,16 @@ body{
     grid-column-end: 5;
     grid-row-start: 6;
     grid-row-end: 7;
+    padding-left: 2px;
 }
 
-.home_heading{
+.upper_heading{
     grid-column-start: 2;
     grid-column-end: 4;
     grid-row-start: 3;
     grid-row-end: 4;
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .home_text{
@@ -107,6 +128,18 @@ body{
     grid-column-end: 4;
     grid-row-start: 4;
     grid-row-end: 6;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.weekly_special_text{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    padding: 2px;
 }
 
 a{
@@ -114,15 +147,30 @@ a{
     color: black;
     text-decoration: none;
     border: 1px solid rgb(000,000,000);
-
+    border-radius: 15px;
+    margin-left: 15px;
+    font-family: 'Open Sans', sans-serif;
+    padding: 2px;
 }
 
-input.button{
+input.filter{
     background-color: #F5976C;
     color: black;
     text-decoration: none;
     border: 1px solid rgb(000,000,000);
+    border-radius: 15px;
+    margin-left: 15px;
+    font-family: 'Open Sans', sans-serif;
+}
 
+input.search_button{
+    background-color: #F5976C;
+    color: black;
+    text-decoration: none;
+    border: 1px solid rgb(000,000,000);
+    border-radius: 15px;
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 5px;
 }
 
 .image{

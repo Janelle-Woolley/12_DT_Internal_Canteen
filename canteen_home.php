@@ -34,30 +34,34 @@ else{
                     <a href="canteen_weekly_specials.php">  WEEKLY SPECIALS </a>
                 </nav>
             </div>
-            <div class="grid-item search">
-                Nunc feugiat, ligula at fringilla.
+            <div class="grid-item logo_right">
+                <a href="canteen_home.php" class="image">
+                    <img src="wgc_logo.jpg" alt="Wellington Girls' College Logo" height="125" width="125">
+                </a>
             </div>
-            <div class="grid-item home_heading">About Us</div>
+            <div class="grid-item upper_heading">
+                <h2>About Us</h2>
+            </div>
             <div class="grid-item home_text">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis congue
-                   gravida tellus, id facilisis quam. Donec egestas sodales ex varius accumsan.
-                   Ut scelerisque fermentum pulvinar. Aliquam sit amet metus rhoncus, porttitor
-                   nulla ac, sagittis neque. Phasellus mattis ligula tortor, sit amet sodales
-                   ante tempor vel. Aliquam scelerisque, mi vel sollicitudin mattis, dolor
-                   justo fringilla odio, nec varius justo ex nec orci. Donec luctus nec massa
-                   eget ornare. Ut eget rhoncus dolor. Donec vitae tortor porttitor felis
-                   vestibulum tincidunt sed id ante. Aenean faucibus risus vitae risus
-                   efficitur varius. Quisque porttitor dapibus felis, ut commodo sapien.
-                   Phasellus orci erat, tempus nec neque eget, venenatis molestie nisi.
-                   Curabitur pharetra placerat maximus. Aliquam egestas ligula sed diam viverra,
-                   ut vulputate magna auctor. Maecenas cursus leo velit, eget dapibus nisl
-                   aliquet et.</p>
+                <p>
+                    We are the Wellington Girls' College Canteen.
+                    <br>
+                    <br>
+                    We offer a range of drinks and foods that meet a variety of dietary requirements.
+                    <br>
+                    <br>
+                    We also have a range of specials that rotate weekly.
+                    <br>
+                    <br>
+                    The canteen is located at 18 Pipitea Street, Thorndon, Wellington underneath the music rooms and next to the driveway Pipetea Street driveway.
+                </p>
             </div>
             <div class="grid-item footer">
                 <?php
                 if($database_connection == TRUE){
-                    echo "connected to database";}
+                    echo " Connected to database";}
                 ?>
+                &copy; Wellington Girls' College 2022 (Janelle Woolley)
             </div>
         </div>
     </body>

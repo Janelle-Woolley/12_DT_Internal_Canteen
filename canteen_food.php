@@ -89,29 +89,29 @@ function print_diet_food_info($database_record){
     <div class="grid-item search">
         <form action="" method="post">
             <input type="text" name="search">
-            <input type="submit" name="submit" value="Search" class="button">
+            <input type="submit" name="submit" value="Search" class="search_button">
         </form>
     </div>
     <div class="grid-item filters">
         <! -- code used from: https://www.geeksforgeeks.org/how-to-call-php-function-on-the-click-of-a-button/ -->
         <form method="post">
             <input type="submit" name="vegetarian"
-                   class="button" value="Vegetarian" />
+                   class="filter" value="Vegetarian" />
 
             <input type="submit" name="vegan"
-                   class="button" value="Vegan" />
+                   class="filter" value="Vegan" />
 
             <input type="submit" name="dairy"
-                   class="button" value="Dairy Free"/>
+                   class="filter" value="Dairy Free"/>
 
             <input type="submit" name="gluten"
-                   class="button" value="Gluten Free"/>
+                   class="filter" value="Gluten Free"/>
 
             <input type="submit" name="meat"
-                   class="button" value="Meat"/>
+                   class="filter" value="Meat"/>
 
             <input type="submit" name="all_food"
-                   class="button" value="All Foods"/>
+                   class="filter" value="All Foods"/>
         </form>
     </div>
     <div class="grid-item product_page_heading">
@@ -132,12 +132,15 @@ function print_diet_food_info($database_record){
                 echo "There were no search results!";
             }
             else{
+                echo "Results: <br>";
                 while($row = mysqli_fetch_array($search_query_food_results)){
                     echo $row['food_name'].": ";
                     echo $row['food_price'];
                     echo "<br>";
                 }
             }
+            echo "<br>";
+            echo "<br>";
         }
         while($left_food_record = mysqli_fetch_assoc($left_food_results)){
             if($left_food_record["food_id"]% 2 != 0){
@@ -218,8 +221,9 @@ function print_diet_food_info($database_record){
     <div class="grid-item footer">
         <?php
         if($database_connection == TRUE){
-            echo "connected to database";}
+            echo "Connected to database";}
         ?>
+        &copy; Wellington Girls' College 2022 (Janelle Woolley)
     </div>
 </div>
 </body>
