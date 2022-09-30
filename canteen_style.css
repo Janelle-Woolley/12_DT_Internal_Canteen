@@ -1,9 +1,10 @@
+/* Imports in fonts to use on website */
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
+
 .grid-container {
-    width: 960px;
     margin: auto; /* center the wrapper */
 
     /* Declare the grid container */
@@ -13,10 +14,12 @@
     grid-gap: 2px;
 }
 
+/* sets colour for the pages */
 body{
     background-color: #F5976C;
 }
 
+/* grid-item class, sets default border and background for the grids/classes */
 .grid-item{
     border-style: solid;
     border-width: 5px;
@@ -24,6 +27,7 @@ body{
     background-color: #FFF8DC;
 }
 
+/* Class for logo, sets grid area */
 .logo{
     grid-column-start: 1;
     grid-column-end: 2;
@@ -31,6 +35,8 @@ body{
     grid-row-end: 2;
 }
 
+/* Class for Canteen heading */
+/* sets grid area and font formatting */
 .main_heading{
     grid-column-start: 2;
     grid-column-end: 4;
@@ -40,6 +46,7 @@ body{
     font-family: 'Montserrat', sans-serif;
 }
 
+/* Class for search feature, sets grid area */
 .search{
     grid-column-start: 4;
     grid-column-end: 5;
@@ -48,6 +55,8 @@ body{
 
 }
 
+/* Second logo class for a logo on the right */
+/* Sets grid area */
 .logo_right{
     grid-column-start: 4;
     grid-column-end: 5;
@@ -55,17 +64,20 @@ body{
     grid-row-end: 2;
 }
 
+/* Navigation class  */
+/* Sets grid area and button spacing */
 .navigation{
     grid-column-start: 1;
     grid-column-end: 5;
     grid-row-start: 2;
     grid-row-end: 3;
-    background-color: #FFF8DC;
     text-align: center;
     padding-top: 5px;
     padding-bottom: 5px;
 }
 
+/* Filter class */
+/* Sets grid area and font formatting*/
 .filters{
     grid-column-start: 1;
     grid-column-end: 5;
@@ -75,6 +87,8 @@ body{
     font-family: 'Open Sans', sans-serif;
 }
 
+/* Heading class for Food and Drinks pages */
+/* Sets grid area and font formatting */
 .product_page_heading{
     grid-column-start: 2;
     grid-column-end: 4;
@@ -84,6 +98,8 @@ body{
     font-family: 'Ubuntu', sans-serif;
 }
 
+/* Product class for the left column for Food, drinks, and weekly special pages */
+/* Sets grid area, font formatting, and background colour */
 .left_products{
     grid-column-start: 2;
     grid-column-end: 3;
@@ -95,6 +111,8 @@ body{
     font-family: 'Open Sans', sans-serif;
 }
 
+/* Product class for the right column for Food, drinks, and weekly special pages */
+/* Sets grid area, font formatting, and background colour */
 .right_products{
     grid-column-start: 3;
     grid-column-end: 4;
@@ -106,6 +124,7 @@ body{
     font-family: 'Open Sans', sans-serif;
 }
 
+/* Footer class, sets grid area and slight text placement */
 .footer{
     grid-column-start: 1;
     grid-column-end: 5;
@@ -114,6 +133,8 @@ body{
     padding-left: 2px;
 }
 
+/* Heading class for Home and Weekly Specials pages */
+/* Sets grid area and font formatting */
 .upper_heading{
     grid-column-start: 2;
     grid-column-end: 4;
@@ -123,6 +144,8 @@ body{
     font-family: 'Ubuntu', sans-serif;
 }
 
+/* Text class for home page */
+/* Sets grid area and font formatting*/
 .home_text{
     grid-column-start: 2;
     grid-column-end: 4;
@@ -132,6 +155,8 @@ body{
     font-family: 'Open Sans', sans-serif;
 }
 
+/* Text class for Weekly Special page */
+/* Sets grid area and font formatting*/
 .weekly_special_text{
     grid-column-start: 2;
     grid-column-end: 4;
@@ -142,6 +167,8 @@ body{
     padding: 2px;
 }
 
+/* Class for links(navigation buttons) */
+/* Button formatting for font, spacing and colours */
 a{
     background-color: #F5976C;
     color: black;
@@ -153,6 +180,8 @@ a{
     padding: 2px;
 }
 
+/* Class for Filter Buttons */
+/* Button formatting for font, spacing and colours */
 input.filter{
     background-color: #F5976C;
     color: black;
@@ -163,6 +192,8 @@ input.filter{
     font-family: 'Open Sans', sans-serif;
 }
 
+/* Class for the search Button */
+/* Button formatting for font, spacing and colours */
 input.search_button{
     background-color: #F5976C;
     color: black;
@@ -173,6 +204,8 @@ input.search_button{
     margin-top: 5px;
 }
 
+/* Class for images e.g. the logo */
+/* Removes styling applied by other classes by setting to transparent */
 .image{
     background-color: transparent;
     text-decoration: none;
